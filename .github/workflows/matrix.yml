@@ -5,7 +5,7 @@ jobs:
     continue-on-error: true
     strategy:
       matrix:
-      # all combinations o node-version and os are run in wf in matrix from. Total runs = 3*2=6
+      # all combinations of node-version and os are run in wf in matrix from. Total runs = 3*2=6
         # node-version: [14, 16, 18]
         node-version:
           - 14
@@ -14,6 +14,15 @@ jobs:
         os:
           - ubuntu-latest
           - windows-latest
+        # will include the individual combination to the matrix run
+        include:
+          - node-version: 12
+            os: ubuntu-latest
+        # will exclude the already existing combination from the matrix run
+        exclude:
+          - node-version: 18
+            os: windows-latest
+
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get code
