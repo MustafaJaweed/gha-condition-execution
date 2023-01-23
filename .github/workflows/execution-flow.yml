@@ -80,6 +80,7 @@ jobs:
     needs:
       - lint
       - deploy
+    runs-on: ubuntu-latest
     if: failure()
     steps:
       - name: Output information
