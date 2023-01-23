@@ -81,7 +81,9 @@ jobs:
       - lint
       - deploy
     if: failure()
-    run: |
-      echo "Something went wrong"
-      echo ${{ toJSON(github) }}
+    steps:
+      - name: Output information
+        run: |
+          echo "Something went wrong"
+          echo ${{ toJSON(github) }}
 
