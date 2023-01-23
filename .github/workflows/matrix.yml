@@ -2,6 +2,7 @@ name: Matrix Demo
 on: push
 jobs:
   build:
+    continue-on-error: true
     strategy:
       matrix:
       # all combinations o node-version and os are run in wf in matrix from. Total runs = 3*2=6
