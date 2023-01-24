@@ -5,10 +5,10 @@ on:
       artifact-name: 
         description:  Name of dist file
         required: false
-        default: dist
+        default: dist-files
         type: string
 jobs:
-  deploy:
+  download:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
